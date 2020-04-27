@@ -1,5 +1,5 @@
 print("="*200)
-print("This program can find the derivative function from polynomial functions")
+print("This program can find the differential coefficients in polynomial functions")
 print("="*200)
 n=int(input("select the power of the highest order in the function:"))
 print("="*200)
