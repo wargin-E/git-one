@@ -1,0 +1,28 @@
+print("object1        object2")
+print("Select the mass and velocity")
+m1=float(input("Mass of object 1 (in kg): "))
+while m1<=0:
+    m1=float(input("Try again. The mass should be a positive value: "))
+m2=float(input("Mass of object 2 (in kg): "))
+while m2<=0:
+    m2=float(input("Try again. The mass should be a positive value: "))
+v1=float(input("Velocity of object 1 in m/s(positive): "))
+v2=float(input("Velocity of object 2 in m/s(positive if going right): "))
+while v1<=v2:
+    v2=float(input("They do not collide. Choose the velocity of object 2: "))
+e=float(input("Coefficient of restitution. Choose a value in [0,1]: "))
+while e>1 or e<0:
+    e="Try again. Choose the coefficient of restitution: "
+v1_after=(m1*v1+m2*v2-m2*e*(v1-v2))/(m1+m2)
+v2_after=(m1*v1+m2*v2+m1*e*(v1-v2))/(m1+m2)
+initial_kinetic=m1*v1*v1/2+m2*v2*v2/2
+after_kinetic=m1*v1_after*v1_after/2+m2*v2_after*v2_after/2
+print("="*200)
+print("Velocity after the collision")
+print("Object 1:",v1_after,"m/s")
+print("Object 2:",v2_after,"m/s")
+print("="*200)
+print("Energy difference")
+print("Initial kinetic energy in the system:",initial_kinetic,"J")
+print("Kinetic energy in the system after the collision:",after_kinetic,"J")
+print("Internal energy generated:",initial_kinetic-after_kinetic,"J")
